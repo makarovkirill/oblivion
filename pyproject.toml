@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=65.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oblivion"
+version = "1.0.0"
+description = "Autonomous Dead Man's Switch & Scorched-Earth Shredder"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    { name = "OBLIVION Security Team" }
+]
+dependencies = [
+    "fastapi>=0.110.0",
+    "uvicorn[standard]>=0.28.0",
+    "aiosqlite>=0.20.0",
+    "cryptography>=42.0.5",
+    "argon2-cffi>=23.1.0",
+    "apscheduler>=3.10.4",
+    "aiogram>=3.4.1",
+    "pydantic>=2.6.4",
+    "python-multipart>=0.0.9",
+    "aiofiles>=23.2.1",
+    "httpx>=0.27.0",
+    "pyinstaller>=6.2.0"
+]
+
+[project.scripts]
+oblivion = "oblivion.main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["oblivion*"]
+
+[tool.setuptools.package-data]
+oblivion = ["static/**/*"]
